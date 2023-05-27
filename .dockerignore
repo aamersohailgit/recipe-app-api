@@ -1,0 +1,34 @@
+# Ignore common unnecessary files and directories
+
+# Version Control Files
+.git
+.gitignore
+.svn
+.hg
+
+# Docker
+.dockerignore
+
+# python
+app/__pycache__
+app/*/__pycache__
+app/*/*/__pycache__
+app/*/*/*/__pycache__
+
+# Development/Build Files
+node_modules
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+.env
+.env.*
+.venv/
+venv/
+
+
+# Editor/IDE Files
+*.swp
+.vscode
+.idea
