@@ -8,23 +8,23 @@ LABEL maintainer="Aamer"
 ENV PYTHONUNBUFFERED 1
 
 # copy requirements.txt file to /tmp/requirements.txt
-COPY ./requirements.txt /tmp/requirements.txt
+COPY ./.app/requirements.txt /tmp/requirements.txt
 
 # copy DEV requirements.dev.txt file to /tmp/requirements.dev.txt
-COPY ./requirements.dev.txt /tmp/requirements.dev.txt
+COPY ./.app/requirements.dev.txt /tmp/requirements.dev.txt
 
 # set working directory to /app
 WORKDIR /app
 
 # copy working directory to /app
-COPY ./app /app
+COPY ./.app/app /app
 
 # expose port 8000
 EXPOSE 8000
 
 ARG DEV=false
 
-# create a virtaul environment for python dependencies
+# create a virtual environment for python dependencies
 RUN python -m venv /py 
 
 # update pip
@@ -40,7 +40,7 @@ RUN rm -rf /tmp
 # add user django-user, disable password and no home directory
 RUN adduser --disabled-password --no-create-home django-user
 
-# update the evvironment variables to /py/bin:$PATH
+# update the environment variables to /py/bin:$PATH
 ENV PATH="/py/bin:$PATH"
 
 # switch to django-user
